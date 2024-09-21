@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Poppins', Arial, sans-serif; /* Use Poppins as the primary font */
+    font-family: 'Poppins', Arial, sans-serif;
     background-color: #f8f8f8;
     color: #333;
 }
@@ -19,21 +19,36 @@ header {
     padding: 20px 0;
 }
 
-header .logo img {
-    width: 700px; /* Increase the logo size */
-    display: block;
-    margin: 0 auto; /* Center the logo */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Space between logo and hamburger */
+    width: 100%; /* Full width */
+    max-width: 700px; /* Limit the width */
+    padding: 0 20px; /* Padding for sides */
 }
 
+header .logo img {
+    width: 100%; /* Keep logo size consistent for large screens */
+    display: block;
+}
 
+.hamburger {
+    display: none; /* Hidden by default */
+    font-size: 30px; /* Size of the hamburger icon */
+    cursor: pointer;
+    color: #fff; /* Color for the hamburger icon */
+    background-color: #ffc107; /* Yellow background */
+    padding: 10px; /* Padding around the hamburger */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Navbar */
 nav {
     background-color: #333;
-    background-size: cover;
     padding: 10px 40px; /* Increase width of the nav bar */
     border-radius: 30px;
     margin-top: 30px;
     width: 98%;
-    /* margin-bottom: 10%; */
     margin-left: 10%;
     margin-right: 10%;
     box-sizing: border-box;
@@ -55,7 +70,7 @@ nav ul li a {
     font-weight: bold;
     font-size: 1.1rem;
     transition: color 0.3s;
-} 
+}
 
 nav ul li a:hover {
     color: #fff200;
@@ -72,7 +87,6 @@ nav ul li a:hover {
     border-radius: 50px;
     margin-left: 1%;
     margin-right: 1%;
-    
 }
 
 .banner-content {
@@ -94,20 +108,19 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-around;
     margin: 20px;
-    padding:20px;
-    
+    padding: 20px;
+    flex-wrap: wrap; /* Allow wrapping */
 }
 
 .cards article {
-
     padding: 20px;
     border-radius: 8px;
     width: 30%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
-    padding: 50px;
     background-color: antiquewhite;
 }
+
 h2, h3 {
     margin-top: 0;
     color: #333;
@@ -116,6 +129,7 @@ h2, h3 {
 ul {
     padding-left: 20px;
 }
+
 .cards article:hover {
     transform: translateY(-10px);
 }
@@ -124,6 +138,7 @@ ul {
     width: 100%;
     border-radius: 8px;
 }
+
 .button {
     display: inline-block;
     padding: 10px 20px;
@@ -140,6 +155,7 @@ ul {
 .button:hover {
     background-color: #0056b3;
 }
+
 /* Footer Section */
 footer {
     display: flex;
@@ -156,4 +172,94 @@ footer .footer-left img {
 
 footer .footer-right {
     text-align: right;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-container {
+        justify-content: space-between; /* Space logo and hamburger */
+    }
+
+    header .logo img {
+        width: 150px; /* Adjust logo size for better fitting on small screens */
+    }
+
+    nav {
+        display: none; /* Hide the nav by default */
+        flex-direction: column; /* Stack items vertically */
+        position: absolute; /* Absolute positioning */
+        background-color: #333; /* Same background as nav */
+        width: 100%; /* Full width */
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+    }
+
+    nav.active {
+        display: flex; /* Show nav when active */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack the list items */
+        align-items: center; /* Center the items */
+        padding: 0; /* Remove padding */
+        margin: 0; /* Remove margin */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Space between items */
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger icon on small screens */
+    }
+
+    .banner {
+        padding: 50px 10px; /* Reduce padding */
+    }
+
+    .banner h1 {
+        font-size: 2.5rem; /* Decrease font size */
+    }
+
+    .banner p {
+        font-size: 1rem; /* Decrease font size */
+    }
+
+    .cards {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+    }
+
+    .cards article {
+        width: 90%; /* Make articles full width */
+        margin-bottom: 20px; /* Space between cards */
+    }
+
+    footer {
+        flex-direction: column; /* Stack footer elements */
+        align-items: center;
+    }
+
+    footer .footer-right {
+        text-align: center; /* Center text */
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li {
+        margin: 0 10px; /* Further decrease margin */
+    }
+
+    .banner h1 {
+        font-size: 2rem; /* Further decrease font size */
+    }
+
+    .banner p {
+        font-size: 0.9rem; /* Further decrease font size */
+    }
+
+    .button {
+        padding: 8px 16px; /* Adjust button size */
+        font-size: 14px; /* Decrease font size */
+    }
 }
